@@ -1,0 +1,25 @@
+<div ng-congroller='showFriendsController'>
+    Filter by birthday: <input type="date" ng-model='filterdate' ><br>
+    <a href="#/new-friend">Add a friend</a>
+    <table>
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Show info</th>
+                <th>edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat='friend in friends | filter : {birthday: filterText}:true'>
+                <td>{{friend.firstName}}</td>
+                <td>{{friend.lastName}}</td>
+                  <td><a href="#/show-friend/{{friend._id}}">ShowInfo</a></td>
+               <!--  <td><a href="#/show-friend/{{friend._id}}">Show</a></td> -->
+                <td><a href="#/edit-friend/{{friend._id}}">Edit</a></td>
+                <td><a href="" ng-click='delete(friend)'>Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
